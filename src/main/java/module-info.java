@@ -1,4 +1,4 @@
-module md.ceiti.dad.exemplu.lucruindividual3_ {
+module md.ceiti.dad.exemplu.lucruindividual3_1 {
     requires javafx.controls;
     requires javafx.fxml;
 
