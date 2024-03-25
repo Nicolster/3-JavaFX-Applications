@@ -102,12 +102,22 @@ public class Sarcina2 extends Application {
 
 
         ObservableList<String> data = FXCollections.observableArrayList();
-        data.addAll("buna", "salut", "salutare");
+        data.addAll("salut", "ce mai faci", "seara");
         tableView.setItems(data);
 
         Button addButton = (Button) root.lookup("#addButton");
         addButton.setOnAction(e -> {
-            data.add("");
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Add Text");
+            dialog.setHeaderText("Enter the text to add:");
+            dialog.setContentText("Text:");
+
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(text -> {
+                if (!text.isEmpty()) {
+                    data.add(text);
+                }
+            });
         });
 
         stage.setTitle("Hello!");
